@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpeakFriend</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { margin: 0; font-family: sans-serif; background: #f4f4f4; }
+    .container { padding: 20px; max-width: 400px; margin: auto; }
+    .screen { display: none; }
+    .active { display: block; }
+    .nav { position: fixed; bottom: 0; width: 100%; display: flex; background: #fff; border-top: 1px solid #ccc; }
+    .nav button { flex: 1; padding: 15px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="auth-screen" class="screen active">
+      <h2>Connexion / Inscription</h2>
+      <input type="text" id="identifier" placeholder="Email ou Numéro" /><br><br>
+      <button onclick="sendCode()">Envoyer un code</button><br><br>
+      <input type="text" id="code" placeholder="Code de vérification" /><br><br>
+      <input type="text" id="pseudo" placeholder="Pseudo unique" /><br><br>
+      <input type="password" id="password" placeholder="Mot de passe" /><br><br>
+      <button onclick="verifyCode()">Valider</button>
+    </div>
+
+    <div id="main-app" class="screen">
+      <h2>Bienvenue sur SpeakFriend</h2>
+      <p id="welcome-user"></p>
+    </div>
+  </div>
+
+  <div class="nav screen" id="bottom-nav">
+    <button onclick="switchTab('calls')">Appels</button>
+    <button onclick="switchTab('communities')">Communautés</button>
+    <button onclick="switchTab('chats')">Discussions</button>
+    <button onclick="switchTab('settings')">Paramètres</button>
+  </div>
+
+  <script type="module" src="firebase.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

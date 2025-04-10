@@ -1,0 +1,1 @@
+// Gère l'historique des appels (placeholder pour l'instant)
